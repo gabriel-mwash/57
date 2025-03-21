@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <label for="inputString">enter string</label>
+  <input type="text" id="inputString">
+  <br>
+  <label for="countOutput">count :: <span id="count">0.00</span></label>
+  <script>
+
+    let inputString = document.getElementById("inputString");
+    let countOutput = document.getElementById("count");
+
+    function countChar() {
+      let countString = inputString.value.length;
+      countOutput.textContent = countString;
+    }
+
+    inputString.addEventListener("keyup", countChar);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <form method="post" action="">
+    <label>bill amount</label>
+    <input type="number" id="billAmount" > 
+    <label>tip Rate %</label>
+    <input type="number"  id="tipRate" >
+    <br>
+    <label>tip : <span id="tip">0.00</span></label>
+    <label> total: <span id="total">0.00</span></label>
+  </form>
+<script>
+
+  let billValue = 0;
+  let tipValue = 0;
+
+  let billAmount = document.getElementById("billAmount");
+  let tipRate = document.getElementById("tipRate");
+  let tipOutput = document.getElementById("tip");
+  let totalOutput = document.getElementById("total");
+
+  function calculations() {
+    billValue = parseFloat(billAmount.value) || 0;
+    tipValue = parseFloat(tipRate.value) || 0;
+
+    let tip = billValue * (tipValue / 100);
+    let total = tip + billValue;
+
+    tipOutput.textContent = tip.toFixed(2);
+    totalOutput.textContent = total.toFixed(2);
+    console.log(tip, total);
+  }
+
+  billAmount.addEventListener("keyup", calculations);
+  tipRate.addEventListener("keyup", calculations);
+
+  calculations();
+
+
+
+
+
+</script>
+</body>
+
+</html>

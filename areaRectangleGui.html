@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    <label for="length">length</label>
+    <input type="number" id="length">
+    <label for="width">width</label>
+    <input type="number" id="width">
+    <br>
+    <label for="areaInFeet">Area in feet :
+      <span id="areaInFeetOutput">0.00</span>
+    </label>
+    <label for="areaInMeters">&nbsp; Area in meters :
+      <span id="areaInMetersOutput">0.00</span>
+    </label>
+
+    <script>
+      let lengthValue = 0;
+      let widthValue = 0;
+
+      let length = document.getElementById("length");
+      let width = document.getElementById("width");
+      let areainFeetOutput = document.getElementById("areaInFeetOutput");
+      let areaInMetersOutput = document.getElementById("areaInMetersOutput");
+
+      const CONSTANT = 0.09290304;
+
+      function calculations() {
+        lengthValue = parseFloat(length.value) || 0;
+        widthValue = parseFloat(width.value) || 0;
+        areaInMetersOutput.textContent = (lengthValue * widthValue).toFixed(2);
+        areainFeetOutput.textContent = (lengthValue * widthValue * CONSTANT).toFixed(2);
+      }
+
+
+      width.addEventListener("keyup" , calculations); 
+      length.addEventListener("keyup", calculations);
+
+      calculations();
+
+    </script>
+  </body>
+</html>
+
